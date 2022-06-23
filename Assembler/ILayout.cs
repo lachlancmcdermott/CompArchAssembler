@@ -7,11 +7,6 @@ namespace Assembler
 {
     public interface ILayout
     {
-        public byte[] Parse(Match match)
-        {
-            
-
-            return null;
-        }
+        public byte[] Parse(Match match);
     }
 }

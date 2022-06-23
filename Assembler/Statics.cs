@@ -9,7 +9,7 @@ namespace Assembler
 
         public static Instruction[] GetAllInstructions()
         {
-            Instruction[] instructions = new Instruction[] { new ADD(), };
+            Instruction[] instructions = new Instruction[] { new ADD(), new SUB()};
             return instructions;
         }
     }

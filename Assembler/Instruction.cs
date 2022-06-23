@@ -8,27 +8,30 @@ namespace Assembler
     public abstract class Instruction
     {
         public byte[] Data;
-        public byte OpCode { get; }
+        public byte OpCode { get; set; }
         public virtual string Pattern { get; }
-        public  virtual ILayout layout { get; }
+        protected  virtual ILayout layout { get; }
 
-        public static Instruction Parse(string instructionStr)
+        public Instruction(byte[] data)
         {
-            Match match = Regex.Match(input: instructionStr, pattern: "ADD R([012][0-9]|3[01]|[0-9]) R([012][0-9]|3[01]|[0-9]) R([012][0-9]|3[01]|) | SUB R([012][0-9]|3[01]|[0-9]) R([012][0-9]|3[01]|[0-9]) R([012][0-9]|3[01]|) |");
+            Data = data;
+        }
+        public Instruction()
+        {
 
-
-
-            if (instructionStr.Substring(0,3) == "ADD")
-            {
-                return new ADD().Parse(match);
-            }
-            else if(instructionStr.Substring(0, 3) == "SUB")
-            {
-                return new SUB().Parse(match);
-            }
-            return null;
         }
 
+        public Instruction Parse(Match match)
+        {
+            this.Data = layout.Parse(match);
+            OpCode = Data[0];
+            return this;
+        }
+
+        public void Emit()
+        {
+
+        }
 
     }
 }

@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 namespace Assembler
 {
     [Opcode (0x10)]
-    public class ADD : MathLayout
+    public class ADD : Instruction
     {
-        public string Pattern => @"(ADD) R([012][0-9]|3[01]|[0-9]) R([012][0-9]|3[01]|[0-9]) R([012][0-9]|3[01]|";
+        public override string Pattern => @"(ADD) R([012][\d]|3[01]|\d) R([012][\d]|3[01]|\d) R([012][\d]|3[01]|\d)";
 
         private MathLayout mathLayout = new MathLayout();
         protected override ILayout layout => mathLayout;
