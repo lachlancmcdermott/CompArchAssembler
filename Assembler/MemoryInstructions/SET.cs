@@ -8,7 +8,7 @@ namespace Assembler.Layouts
     [Opcode(0x40)]
     public class SET : Instruction
     {
-        //different regex pattern required, must fit parse in "flowlayout", see ISA
+        //different regex pattern required, must fit parse in "memoryLayout", see ISA
         public override string Pattern => @"(SET) R([012][\d]|3[01]|\d) R([012][\d]|3[01]|\d) R([012][\d]|3[01]|\d)";
 
         private MemoryLayout memoryLayout = new MemoryLayout();

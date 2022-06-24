@@ -14,11 +14,11 @@ namespace Assembler.Layouts
         private FlowLayout flowLayout = new FlowLayout();
         protected override ILayout layout => flowLayout;
 
-        public SET(byte[] data) : base(data)
+        public JMP(byte[] data) : base(data)
         {
         }
 
-        public SET() : base()
+        public JMP() : base()
         {
         }
     }

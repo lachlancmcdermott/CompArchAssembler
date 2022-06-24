@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace Assembler
+namespace Assembler.Layouts
 {
+    //SET CMD - SET first 2 bytes are padded
     class Program
     {
         //make InstructionsToArray, store the bits from the translated instructions back into a singular text file
@@ -18,19 +19,19 @@ namespace Assembler
 
         static string[] LoadInstructions()
         {
-            return System.IO.File.ReadAllLines("Assembly.asm");
+            return System.IO.File.ReadAllLines("Program.asm");
         }
 
         static void Main(string[] args)
         {
-            string[] instructionString = LoadInstructions();
+            string[] instructionStrings = LoadInstructions();
             Instruction[] allInstructions = Statics.GetAllInstructions();
 
-            for (int i = 0; i < instructionString.Length; i++)
+            for (int i = 0; i < instructionStrings.Length; i++)
             {
                 foreach(Instruction ins in allInstructions)
                 {
-                    Match match = Regex.Match(input: instructionString[i], pattern: ins.Pattern);
+                    Match match = Regex.Match(input: instructionStrings[i], pattern: ins.Pattern);
 
                     if (match.Success)
                     {

@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Assembly.asm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Program.asm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
