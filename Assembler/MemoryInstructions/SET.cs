@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Assembler.Layouts
-}
+{
     [Opcode(0x40)]
     public class SET : Instruction
     {

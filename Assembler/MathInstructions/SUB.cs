@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Assembler
+namespace Assembler.Layouts
 {
     [Opcode(0x11)]
     public class SUB : Instruction
