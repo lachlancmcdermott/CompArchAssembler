@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SharedLibrary.Layouts;
+using SharedLibrary.MathInstructions;
+using SharedLibrary.MemoryInstructions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Assembler.Layouts
+namespace SharedLibrary
 {
-    class Statics
+    public class Statics
     {
         public static Instruction[] GetAllInstructions()
         {

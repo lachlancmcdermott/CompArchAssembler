@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Program.asm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

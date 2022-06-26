@@ -3,8 +3,9 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
+using SharedLibrary;
 
-namespace Assembler.Layouts
+namespace Assembler
 {
     class Program
     {

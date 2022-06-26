@@ -1,10 +1,12 @@
-﻿using Assembler.Layouts;
+﻿using SharedLibrary.Layouts;
+using SharedLibrary.MathInstructions;
+using SharedLibrary.MemoryInstructions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Assembler
+namespace SharedLibrary
 {
     public abstract class Instruction
     {
