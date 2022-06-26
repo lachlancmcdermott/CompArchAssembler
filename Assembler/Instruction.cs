@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assembler.Layouts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -25,7 +26,20 @@ namespace Assembler
         {
             this.Data = layout.Parse(match);
             OpCode = Data[0];
-            return this;
+
+            switch (OpCode)
+            {
+                case 0x40:
+                    return new SET(layout.Parse(match));
+                case 0x10:
+                    return new ADD(layout.Parse(match));
+                case 0x11:
+                    return new SUB(layout.Parse(match));
+                case 0x30:
+                    return new JMP(layout.Parse(match));
+            }
+
+            throw new Exception("Instruction not implemented yet!");
         }
 
         public void Emit()

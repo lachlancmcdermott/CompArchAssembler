@@ -6,16 +6,30 @@ using System.Linq;
 
 namespace Assembler.Layouts
 {
-    //SET CMD - SET first 2 bytes are padded
     class Program
     {
-        //make InstructionsToArray, store the bits from the translated instructions back into a singular text file
         static byte[] InstructionsToArray(List<Instruction> assemblyInstructions)
         {
-            
-            //add byte array 0 and 1 together, make a temp array, then add temp and 2 together, then add temp and 3... so on
-            return null;
+            byte[] output = new byte[assemblyInstructions.Count * 4];
+            int index = 0;
+            for (int i = 0; i < assemblyInstructions.Count; i++)
+            {
+                for (int k = 0; k < 4; k++)
+                {
+                    output[index] = assemblyInstructions[i].Data[k];
+                    index++;
+                }
+            }
+            return output;
         }
+
+        static void WriteInstructions(List<Instruction> assemblyInstructions)
+        {
+            byte[] input = InstructionsToArray(assemblyInstructions);
+
+            System.IO.File.WriteAllBytes("Instructions.bin", input);
+        }
+
 
         static string[] LoadInstructions()
         {
@@ -26,6 +40,7 @@ namespace Assembler.Layouts
         {
             string[] instructionStrings = LoadInstructions();
             Instruction[] allInstructions = Statics.GetAllInstructions();
+            List<Instruction> assemblyIns = new List<Instruction>();
 
             for (int i = 0; i < instructionStrings.Length; i++)
             {
@@ -35,10 +50,11 @@ namespace Assembler.Layouts
 
                     if (match.Success)
                     {
-                        ins.Parse(match);
+                        assemblyIns.Add(ins.Parse(match));
                     }
                 }
             }
+            WriteInstructions(assemblyIns);
         }
     }
 }
